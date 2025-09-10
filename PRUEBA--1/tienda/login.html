@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Login | YAKUZASTORE</title>Z
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/validaciones.js" defer></script>
+</head>
+<body>
+		<header>
+			<nav class="navbar">
+				   <a href="index.html" class="logo">YAKUZASTORE</a>
+				  <!-- Ícono admin oculto por defecto -->
+				  <a href="admin.html" id="adminIcon" style="display:none; margin-right:16px;">
+					<img src="img/admin-icon.png" alt="Panel Admin" style="width:32px;height:32px;">
+				  </a>
+				<ul class="menu">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		
+		<section class="banner">
+			<img src="img/banner.jpg" alt="Banner Tienda" class="banner-img">
+		</section>
+
+		<main class="form-container">
+			<img src="img/decoracion.jpg" alt="Decoración" class="decoracion-img">
+			<h2>Iniciar Sesión</h2>
+			<form id="formLogin">
+				<label>Correo</label>
+				<input type="email" id="correoLogin" required>
+
+				<label>Contraseña</label>
+				<input type="password" id="passwordLogin" required>
+
+				<button type="submit">Ingresar</button>
+			</form>
+			<p id="mensajeLogin"></p>
+			<button onclick="window.location.href='index.html'" type="button" style="margin-top:16px;">Volver a inicio</button>
+		</main>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('formLogin');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('correoLogin').value.trim();
+      const password = document.getElementById('passwordLogin').value.trim();
+      if (email.endsWith('@admin.cl')) {
+        window.location.href = 'admin.html';
+      } else {
+        // Aquí puedes poner la lógica para usuarios normales
+        // window.location.href = 'index.html';
+      }
+    });
+  }
+});
+		</script>
+		<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('isAdmin') === 'true') {
+    const adminIcon = document.getElementById('adminIcon');
+    if (adminIcon) adminIcon.style.display = 'inline-block';
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto - Panel Administrador</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
+        .admin-container { display: flex; height: 100vh; }
+        .sidebar { width: 240px; background: #fff; border-right: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0; }
+        .sidebar .logo { text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 30px; }
+        .sidebar nav ul { list-style: none; padding: 0; }
+        .sidebar nav ul li { margin: 18px 0; }
+        .sidebar nav ul li a { text-decoration: none; color: #222; display: flex; align-items: center; font-size: 1em; transition: color 0.2s; }
+        .sidebar nav ul li a.active, .sidebar nav ul li a:hover { color: #007bff; }
+        .main-content { flex: 1; padding: 40px; background: #f5f5f5; display: flex; flex-direction: column; }
+        .main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .main-header h1 { font-size: 2em; font-weight: 500; }
+        .main-header .icon { font-size: 1.5em; }
+        .main-section { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex: 1; padding: 30px; min-height: 300px; }
+        .form-title { font-size: 1.5em; margin-bottom: 20px; }
+        form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        label { font-weight: bold; margin-bottom: 5px; }
+        input, textarea { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .form-actions { text-align: center; margin-top: 20px; }
+        .form-actions button { background: #007bff; color: #fff; border: none; padding: 10px 30px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div>
+                <div class="logo">🏢 Company</div>
+                <nav>
+                    <ul>
+                        <li><a href="admin.html">Dashboard</a></li>
+                        <li><a href="usuarios.html">Usuarios</a></li>
+                        <li><a href="productos.html" class="active">Productos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="main-header">
+                <h1>Editar Producto</h1>
+                <span class="icon">🔔</span>
+            </div>
+            <div class="main-section">
+                <div class="form-title">Editar información del producto</div>
+                <form>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required maxlength="100">
+
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" name="precio" required min="0">
+
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" name="stock" required min="0">
+
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" maxlength="500"></textarea>
+
+                    <label for="imagen">Imagen (URL o ruta)</label>
+                    <input type="text" id="imagen" name="imagen" placeholder="img/ejemplo.jpg">
+
+                    <div class="form-actions">
+                        <button type="submit">GUARDAR CAMBIOS</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

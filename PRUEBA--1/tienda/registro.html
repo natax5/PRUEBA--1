@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Registro de Usuario | YAKUZASTORE</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/validaciones.js" defer></script>
+</head>
+<body>
+		<header>
+			<nav class="navbar">
+				   <a href="index.html" class="logo">YAKUZASTORE</a>
+				<ul class="menu">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		
+		<section class="banner">
+			<img src="img/banner.jpg" alt="Banner Tienda" class="banner-img">
+		</section>
+
+		<main class="form-container">
+			<img src="img/decoracion.jpg" alt="Decoración" class="decoracion-img">
+			<h2>Registro de Usuario</h2>
+			<form id="formRegistro">
+				<label for="nombre">Nombre</label>
+				<input type="text" id="nombre" required maxlength="50">
+
+				<label for="apellido">Apellido</label>
+				<input type="text" id="apellido" required maxlength="100">
+
+				<label for="correo">Correo</label>
+				<input type="email" id="correo" required maxlength="100" placeholder="usuario@duoc.cl">
+
+				<label for="password">Contraseña</label>
+				<input type="password" id="password" required minlength="4" maxlength="10">
+
+				<button type="submit">Registrar</button>
+			</form>
+			<p id="mensajeRegistro"></p>
+		</main>
+</body>
+</html>

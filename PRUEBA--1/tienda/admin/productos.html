@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - Panel Administrador</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
+    .admin-container { display: flex; height: 100vh; }
+    .sidebar { width: 240px; background: #fff; border-right: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0; }
+    .sidebar .logo { text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 30px; }
+    .sidebar nav ul { list-style: none; padding: 0; }
+    .sidebar nav ul li { margin: 18px 0; }
+    .sidebar nav ul li a { text-decoration: none; color: #222; display: flex; align-items: center; font-size: 1em; transition: color 0.2s; }
+    .sidebar nav ul li a.active, .sidebar nav ul li a:hover { color: #007bff; }
+    .main-content { flex: 1; padding: 40px; background: #f5f5f5; display: flex; flex-direction: column; }
+    .main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .main-header h1 { font-size: 2em; font-weight: 500; }
+    .main-header .icon { font-size: 1.5em; }
+    .main-section { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex: 1; padding: 30px; min-height: 300px; }
+    .productos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .productos-header h2 { margin: 0; }
+    .productos-header .nuevo-btn { background: #000; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+    th { background: #f0f0f0; }
+    .pagination { display: flex; justify-content: center; margin-top: 20px; }
+    .pagination button { margin: 0 2px; padding: 6px 12px; border: none; background: #eee; cursor: pointer; border-radius: 3px; }
+    .pagination button.active { background: #007bff; color: #fff; }
+    #formProducto { display: none; flex-direction: column; gap: 10px; margin-top: 30px; max-width: 400px; background: #fafafa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    #formProducto label { font-weight: bold; }
+    #formProducto input, #formProducto textarea { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    #formProducto button { background: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+  </style>
+  <script>
+    function mostrarFormulario() {
+      document.getElementById('formProducto').style.display = 'flex';
+    }
+  </script>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div>
+        <div class="logo">🏢 Company</div>
+        <nav>
+          <ul>
+            <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="usuarios.html">Usuarios</a></li>
+            <li><a href="#" class="active">Productos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div class="main-header">
+        <h1>Productos</h1>
+        <span class="icon">🔔</span>
+      </div>
+      <div class="main-section">
+        <div class="productos-header">
+          <h2>Lista de Productos</h2>
+          <button class="nuevo-btn" onclick="mostrarFormulario()">NUEVO PRODUCTO</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Stock</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>P001</td><td>Polera Básica</td><td>Ropa</td><td>120</td><td>$8.990</td></tr>
+            <tr><td>P002</td><td>Pantalón Jeans</td><td>Ropa</td><td>80</td><td>$15.990</td></tr>
+            <tr><td>P003</td><td>Zapatos Urbanos</td><td>Calzado</td><td>50</td><td>$22.990</td></tr>
+            <!-- ...más filas de ejemplo... -->
+          </tbody>
+        </table>
+        <div class="pagination">
+          <button>&lt;</button>
+          <button>1</button>
+          <button class="active">2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>&gt;</button>
+        </div>
+        <!-- Formulario oculto para nuevo producto -->
+        <form id="formProducto">
+          <input type="hidden" id="idProducto">
+          <label>Nombre:</label>
+          <input type="text" id="nombre" required maxlength="100">
+          <label>Precio:</label>
+          <input type="number" id="precio" required min="0">
+          <label>Stock:</label>
+          <input type="number" id="stock" required min="0">
+          <label>Descripción:</label>
+          <textarea id="descripcion" maxlength="500"></textarea>
+          <label>Imagen (URL o ruta):</label>
+          <input type="text" id="imagen" placeholder="img/ejemplo.jpg">
+          <button type="submit">Guardar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
